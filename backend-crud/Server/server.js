@@ -6,7 +6,7 @@
  mongoose = require('mongoose');
  
  // MongoDB Databse url
- var mongoDatabase = 'mongodb://localhost:27017/employeeDetails';
+ var mongoDatabase = 'mongodb+srv://bojegowda:Boja@123@cluster0.pvyzs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
  
  // Created express server
  const app = express();
@@ -28,10 +28,16 @@
  app.use(cors());
  
  // Setup for the server port number
- const port = process.env.PORT || 4000;
+ const port = process.env.PORT || 3306;
  
  // Routes Configuration
  app.use('/employees', employeeRoutes);
+ 
+ app.get('/', (req, res) => {
+    console.log("endpoint called");
+        res.send('test');
+       
+    })
  
  // Staring our express server
  const server = app.listen(port, function () {
